@@ -1,19 +1,21 @@
-/* =========================
-PASSWORD PROTECTION
-========================= */
-
 const PASSWORD = "belajar";
 
-if(localStorage.getItem("auth") !== "true"){
-  let p = prompt("Password:");
+function checkPassword(){
+  const input = document.getElementById("passwordInput").value;
 
-  if(p === PASSWORD){
+  if(input === PASSWORD){
     localStorage.setItem("auth","true");
+    document.getElementById("loginPage").style.display = "none";
   } else {
-    document.body.innerHTML = "Akses ditolak";
-    throw new Error("Blocked");
+    document.getElementById("loginError").innerText = "Password salah!";
   }
 }
+
+window.onload = function(){
+  if(localStorage.getItem("auth") === "true"){
+    document.getElementById("loginPage").style.display = "none";
+  }
+};
 
 /* =========================
 FILE: script.js
