@@ -1,4 +1,21 @@
 /* =========================
+PASSWORD PROTECTION
+========================= */
+
+const PASSWORD = "cpns2026";
+
+if(localStorage.getItem("auth") !== "true"){
+  let p = prompt("Password:");
+
+  if(p === PASSWORD){
+    localStorage.setItem("auth","true");
+  } else {
+    document.body.innerHTML = "Akses ditolak";
+    throw new Error("Blocked");
+  }
+}
+
+/* =========================
 FILE: script.js
 ========================= */
 
