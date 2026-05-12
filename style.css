@@ -1,0 +1,924 @@
+/* =========================
+RESET
+========================= */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial,sans-serif;
+}
+
+body{
+  background:#f1f5f9;
+  color:#111827;
+}
+
+/* =========================
+CONTAINER
+========================= */
+
+.container{
+  width:100%;
+  min-height:100vh;
+  padding:20px;
+}
+
+/* =========================
+TOPBAR
+========================= */
+
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:white;
+  padding:20px;
+  border-radius:15px;
+  box-shadow:0 2px 10px rgba(0,0,0,0.08);
+  margin-bottom:20px;
+}
+
+.topbar h1{
+  font-size:28px;
+  color:#2563eb;
+}
+
+.topbar p{
+  margin-top:5px;
+  color:#6b7280;
+}
+
+.top-actions{
+  display:flex;
+  gap:10px;
+}
+
+.top-actions button{
+  border:none;
+  padding:10px 15px;
+  border-radius:10px;
+  background:#2563eb;
+  color:white;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.top-actions button:hover{
+  opacity:0.9;
+}
+
+/* =========================
+INFO BOX
+========================= */
+
+.info-box{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:15px;
+  margin-bottom:20px;
+}
+
+.info-card{
+  background:white;
+  padding:20px;
+  border-radius:15px;
+  box-shadow:0 2px 10px rgba(0,0,0,0.08);
+  text-align:center;
+}
+
+.info-card h3{
+  color:#6b7280;
+  margin-bottom:10px;
+}
+
+.info-card p{
+  font-size:24px;
+  font-weight:bold;
+  color:#2563eb;
+}
+
+/* =========================
+MAIN LAYOUT
+========================= */
+
+.main-layout{
+  display:grid;
+  grid-template-columns:300px 1fr;
+  gap:20px;
+}
+
+@media(max-width:900px){
+
+  .main-layout{
+    grid-template-columns:1fr;
+  }
+
+}
+
+/* =========================
+SIDEBAR
+========================= */
+
+.sidebar{
+  background:white;
+  padding:20px;
+  border-radius:15px;
+  box-shadow:0 2px 10px rgba(0,0,0,0.08);
+}
+
+.legend{
+  margin:15px 0;
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  font-size:14px;
+}
+
+.legend span{
+  display:inline-block;
+  width:15px;
+  height:15px;
+  border-radius:4px;
+}
+
+.legend-gray{
+  background:#d1d5db;
+}
+
+.legend-green{
+  background:#22c55e;
+}
+
+.legend-yellow{
+  background:#facc15;
+}
+
+.question-nav{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:10px;
+}
+
+.nav-btn{
+  height:45px;
+  border:none;
+  border-radius:10px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.nav-btn.unanswered{
+  background:#d1d5db;
+}
+
+.nav-btn.answered{
+  background:#22c55e;
+  color:white;
+}
+
+.nav-btn.marked{
+  background:#facc15;
+}
+
+/* =========================
+QUESTION AREA
+========================= */
+
+.question-area{
+  background:white;
+  border-radius:15px;
+  padding:20px;
+  box-shadow:0 2px 10px rgba(0,0,0,0.08);
+}
+
+.question-header{
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:20px;
+  font-weight:bold;
+  color:#2563eb;
+}
+
+.question-card{
+  min-height:300px;
+}
+
+.question-card h2{
+  margin-bottom:25px;
+  line-height:1.5;
+}
+
+/* =========================
+OPTIONS
+========================= */
+
+.option{
+  border:2px solid #e5e7eb;
+  padding:15px;
+  border-radius:12px;
+  margin-bottom:15px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.option:hover{
+  border-color:#2563eb;
+  background:#eff6ff;
+}
+
+.option.selected{
+  background:#2563eb;
+  color:white;
+  border-color:#2563eb;
+}
+
+/* =========================
+BOTTOM BUTTON
+========================= */
+
+.bottom-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:20px;
+}
+
+.bottom-actions button{
+  flex:1;
+  min-width:120px;
+  padding:14px;
+  border:none;
+  border-radius:12px;
+  cursor:pointer;
+  font-weight:bold;
+  background:#2563eb;
+  color:white;
+}
+
+.finish{
+  background:#dc2626 !important;
+}
+
+/* =========================
+RESULT MODAL
+========================= */
+
+.result-modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.6);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:999;
+}
+
+.result-box{
+  width:90%;
+  max-width:600px;
+  background:white;
+  padding:30px;
+  border-radius:20px;
+}
+
+.result-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:15px;
+  margin:20px 0;
+}
+
+.result-item{
+  background:#f3f4f6;
+  padding:20px;
+  border-radius:12px;
+  text-align:center;
+}
+
+.result-item p{
+  font-size:28px;
+  font-weight:bold;
+  color:#2563eb;
+}
+
+.passing-box{
+  background:#eff6ff;
+  padding:15px;
+  border-radius:12px;
+  margin-bottom:20px;
+}
+
+/* =========================
+ADMIN MODAL
+========================= */
+
+.admin-modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.6);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:999;
+}
+
+.admin-box{
+  width:95%;
+  max-width:600px;
+  background:white;
+  padding:25px;
+  border-radius:20px;
+}
+
+.admin-box h2{
+  margin-bottom:20px;
+}
+
+.admin-box textarea{
+  width:100%;
+  height:120px;
+  margin-bottom:15px;
+  padding:12px;
+  border:1px solid #d1d5db;
+  border-radius:10px;
+  resize:none;
+}
+
+.admin-box input,
+.admin-box select{
+  width:100%;
+  padding:12px;
+  margin-bottom:12px;
+  border:1px solid #d1d5db;
+  border-radius:10px;
+}
+
+.admin-actions{
+  display:flex;
+  gap:10px;
+}
+
+.admin-actions button{
+  flex:1;
+  padding:14px;
+  border:none;
+  border-radius:12px;
+  cursor:pointer;
+  font-weight:bold;
+  background:#2563eb;
+  color:white;
+}
+
+/* =========================
+DARK MODE
+========================= */
+
+body.dark{
+  background:#0f172a;
+  color:white;
+}
+
+body.dark .topbar,
+body.dark .info-card,
+body.dark .sidebar,
+body.dark .question-area,
+body.dark .result-box,
+body.dark .admin-box{
+  background:#1e293b;
+  color:white;
+}
+
+body.dark .option{
+  border-color:#334155;
+}
+
+body.dark .option:hover{
+  background:#334155;
+}
+
+body.dark .result-item{
+  background:#334155;
+}
+
+body.dark input,
+body.dark textarea,
+body.dark select{
+  background:#0f172a;
+  color:white;
+  border-color:#334155;
+}
+
+/*
+=========================================
+TOMBOL HAPUS SOAL
+=========================================
+*/
+
+#deleteQuestionBtn{
+  padding: 10px 18px;
+  border: none;
+  border-radius: 10px;
+  background: #dc2626;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-left: 10px;
+}
+
+#deleteQuestionBtn:hover{
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+/*
+=========================================
+WRAPPER TOMBOL ADMIN
+=========================================
+*/
+
+.admin-action{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
+
+/*
+=========================================
+RESPONSIVE MOBILE & DESKTOP
+=========================================
+*/
+
+*{
+  box-sizing: border-box;
+}
+
+body{
+  overflow-x: hidden;
+}
+
+/*
+=========================================
+CONTAINER
+=========================================
+*/
+
+.container{
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 15px;
+}
+
+/*
+=========================================
+HEADER
+=========================================
+*/
+
+header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/*
+=========================================
+INFORMASI UJIAN
+=========================================
+*/
+
+.exam-info{
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/*
+=========================================
+AREA SOAL
+=========================================
+*/
+
+.question-box{
+  width: 100%;
+  padding: 20px;
+  border-radius: 14px;
+}
+
+#questionText{
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+/*
+=========================================
+PILIHAN JAWABAN
+=========================================
+*/
+
+.option{
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: 0.2s;
+  word-wrap: break-word;
+}
+
+/*
+=========================================
+NAVIGASI SOAL
+=========================================
+*/
+
+#questionNav{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 15px;
+}
+
+.nav-btn{
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+/*
+=========================================
+TOMBOL
+=========================================
+*/
+
+button{
+  min-height: 42px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/*
+=========================================
+ACTION BUTTON
+=========================================
+*/
+
+.action-buttons,
+.admin-action{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+/*
+=========================================
+MODAL
+=========================================
+*/
+
+.modal-content{
+  width: 95%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: 16px;
+  padding: 20px;
+}
+
+/*
+=========================================
+INPUT
+=========================================
+*/
+
+input,
+textarea,
+select{
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  margin-top: 8px;
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+/*
+=========================================
+TABLET
+=========================================
+*/
+
+@media(max-width: 768px){
+
+  .container{
+    padding: 10px;
+  }
+
+  #questionText{
+    font-size: 16px;
+  }
+
+  .option{
+    font-size: 14px;
+    padding: 12px;
+  }
+
+  .nav-btn{
+    width: 38px;
+    height: 38px;
+    font-size: 13px;
+  }
+
+  button{
+    width: 100%;
+  }
+
+  .action-buttons button,
+  .admin-action button{
+    width: 100%;
+  }
+
+}
+
+/*
+=========================================
+MOBILE KECIL
+=========================================
+*/
+
+@media(max-width: 480px){
+
+  header{
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  #questionText{
+    font-size: 15px;
+  }
+
+  .question-box{
+    padding: 15px;
+  }
+
+  .option{
+    font-size: 13px;
+  }
+
+  .nav-btn{
+    width: 34px;
+    height: 34px;
+    font-size: 12px;
+  }
+
+  .modal-content{
+    padding: 15px;
+  }
+
+}
+
+/*
+=========================================
+FITUR BUTTON WRAPPER
+=========================================
+*/
+
+.top-actions{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin-top: 10px;
+}
+
+/*
+=========================================
+SEMUA TOMBOL FITUR
+=========================================
+*/
+
+#openAdminBtn,
+#deleteQuestionBtn,
+#darkBtn,
+#resetBtn,
+#fullscreenBtn{
+  padding: 7px 12px;
+  font-size: 13px;
+  border-radius: 10px;
+  min-height: 36px;
+  min-width: auto;
+  white-space: nowrap;
+}
+
+/*
+=========================================
+KHUSUS ICON BUTTON
+=========================================
+*/
+
+#darkBtn,
+#fullscreenBtn{
+  width: 38px;
+  padding: 0;
+  font-size: 15px;
+}
+
+/*
+=========================================
+MOBILE
+=========================================
+*/
+
+@media(max-width: 768px){
+
+  .top-actions{
+    gap: 6px;
+    justify-content: center;
+  }
+
+  #openAdminBtn,
+  #deleteQuestionBtn,
+  #darkBtn,
+  #resetBtn,
+  #fullscreenBtn{
+    font-size: 12px;
+    padding: 6px 10px;
+    min-height: 34px;
+  }
+
+  #darkBtn,
+  #fullscreenBtn{
+    width: 34px;
+    height: 34px;
+  }
+
+}
+
+/*
+=========================================
+ANIMASI WEBSITE MODERN
+=========================================
+*/
+
+html{
+  scroll-behavior: smooth;
+}
+
+/*
+=========================================
+CONTAINER
+=========================================
+*/
+
+.container{
+  animation: smoothAppear 0.5s ease;
+}
+
+/*
+=========================================
+QUESTION BOX
+=========================================
+*/
+
+.question-box{
+  transition:
+  transform 0.25s ease,
+  box-shadow 0.25s ease,
+  background 0.3s ease;
+}
+
+.question-box:hover{
+  transform: translateY(-2px);
+}
+
+/*
+=========================================
+OPTION
+=========================================
+*/
+
+.option{
+  transition:
+  background 0.25s ease,
+  transform 0.2s ease,
+  border 0.25s ease,
+  box-shadow 0.25s ease;
+}
+
+.option:hover{
+  transform: translateX(4px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.option.selected{
+  transform: scale(1.01);
+}
+
+/*
+=========================================
+BUTTON
+=========================================
+*/
+
+button{
+  transition:
+  transform 0.2s ease,
+  opacity 0.2s ease,
+  box-shadow 0.25s ease;
+}
+
+button:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+}
+
+button:active{
+  transform: scale(0.97);
+}
+
+/*
+=========================================
+NAV BUTTON
+=========================================
+*/
+
+.nav-btn{
+  transition:
+  transform 0.2s ease,
+  background 0.2s ease;
+}
+
+.nav-btn:hover{
+  transform: scale(1.05);
+}
+
+/*
+=========================================
+MODAL
+=========================================
+*/
+
+.modal-content{
+  animation: modalSlide 0.3s ease;
+}
+
+/*
+=========================================
+INPUT
+=========================================
+*/
+
+input,
+textarea,
+select{
+  transition:
+  border 0.25s ease,
+  box-shadow 0.25s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus{
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(59,130,246,0.15);
+}
+
+/*
+=========================================
+KEYFRAMES
+=========================================
+*/
+
+@keyframes smoothAppear{
+  from{
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes modalSlide{
+  from{
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

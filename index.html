@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SKD CAT CPNS</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .hidden{
+      display: none !important;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <header class="topbar">
+
+    <div>
+      <h1>SKD CAT CPNS</h1>
+      <p id="participantName">Peserta: Ridwan Saputra</p>
+    </div>
+
+    <div class="top-actions">
+      <button type="button" id="darkBtn">🌙</button>
+      <button type="button" id="fullscreenBtn">⛶</button>
+      <button type="button" id="openAdminBtn">+ Tambah Soal</button>
+      <button type="button" id="resetBtn">Reset</button>
+      <button id="deleteQuestionBtn">
+        Hapus Soal
+      </button>
+    </div>
+
+  </header>
+
+  <section class="info-box">
+
+    <div class="info-card">
+      <h3>Timer</h3>
+      <p id="timer">00:00:00</p>
+    </div>
+
+    <div class="info-card">
+      <h3>Total Soal</h3>
+      <p id="totalQuestions">0</p>
+    </div>
+
+    <div class="info-card">
+      <h3>Progress</h3>
+      <p id="progressText">0%</p>
+    </div>
+
+  </section>
+
+  <div class="main-layout">
+
+    <aside class="sidebar">
+
+      <h3>Navigasi Soal</h3>
+
+      <div class="legend">
+        <span class="legend-gray"></span> Belum
+        <span class="legend-green"></span> Jawab
+        <span class="legend-yellow"></span> Ragu
+      </div>
+
+      <div id="questionNav" class="question-nav"></div>
+
+    </aside>
+
+    <main class="question-area">
+
+      <div class="question-header">
+        <span id="questionCategory">TWK</span>
+        <span id="questionNumber">Soal 1</span>
+      </div>
+
+      <div class="question-card">
+
+        <h2 id="questionText"></h2>
+
+        <div id="optionsContainer"></div>
+
+      </div>
+
+      <div class="bottom-actions">
+        <button type="button" id="prevBtn">Sebelumnya</button>
+        <button type="button" id="markBtn">Ragu-ragu</button>
+        <button type="button" id="nextBtn">Selanjutnya</button>
+        <button type="button" id="finishBtn" class="finish">
+          Selesai Ujian
+        </button>
+      </div>
+
+    </main>
+
+  </div>
+
+</div>
+
+<!-- RESULT -->
+<div id="resultModal" class="result-modal hidden">
+
+  <div class="result-box">
+
+    <h2>HASIL UJIAN</h2>
+
+    <div class="result-grid">
+
+      <div class="result-item">
+        <h3>TWK</h3>
+        <p id="twkScore">0</p>
+      </div>
+
+      <div class="result-item">
+        <h3>TIU</h3>
+        <p id="tiuScore">0</p>
+      </div>
+
+      <div class="result-item">
+        <h3>TKP</h3>
+        <p id="tkpScore">0</p>
+      </div>
+
+      <div class="result-item">
+        <h3>Total</h3>
+        <p id="totalScore">0</p>
+      </div>
+
+    </div>
+
+    <div class="passing-box">
+      <p id="passingInfo"></p>
+    </div>
+
+    <h1 id="statusResult"></h1>
+
+  </div>
+
+</div>
+
+<!-- ADMIN MODAL -->
+<div id="adminModal"
+     class="admin-modal hidden"
+     aria-hidden="true">
+
+  <div class="admin-box">
+
+    <h2>Tambah Soal Baru</h2>
+
+    <select id="newCategory">
+      <option value="TWK">TWK</option>
+      <option value="TIU">TIU</option>
+      <option value="TKP">TKP</option>
+    </select>
+
+    <textarea
+      id="newQuestion"
+      placeholder="Tulis soal..."
+    ></textarea>
+
+    <input type="text" id="opt1" placeholder="Pilihan A">
+    <input type="text" id="opt2" placeholder="Pilihan B">
+    <input type="text" id="opt3" placeholder="Pilihan C">
+    <input type="text" id="opt4" placeholder="Pilihan D">
+    <input type="text" id="opt5" placeholder="Pilihan E">
+
+    <select id="correctAnswer">
+      <option value="0">Jawaban A</option>
+      <option value="1">Jawaban B</option>
+      <option value="2">Jawaban C</option>
+      <option value="3">Jawaban D</option>
+      <option value="4">Jawaban E</option>
+    </select>
+
+    <div class="admin-actions">
+
+      <button type="button" id="saveQuestionBtn">
+        Simpan Soal
+      </button>
+
+      <button type="button" id="closeAdminBtn">
+        Tutup
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
