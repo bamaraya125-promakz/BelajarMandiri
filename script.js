@@ -2,7 +2,7 @@
 PASSWORD PROTECTION
 ========================= */
 
-const PASSWORD = "cpns2026";
+const PASSWORD = "belajar";
 
 if(localStorage.getItem("auth") !== "true"){
   let p = prompt("Password:");
